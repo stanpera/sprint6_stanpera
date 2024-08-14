@@ -1,0 +1,844 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: 0;
+  font-family: "Roboto Condensed", sans-serif;
+}
+:root {
+  --selectionColor: rgb(0, 253, 0);
+  --goldThemeColor: #a48e10;
+  --goldThemeColorMouseover: #7c6c0f;
+  --darkThemeColor: #e8e4c9;
+  --darkThemeColorTabelOdd: #e8e4c957;
+  --darkThemeColorInnerTabelOdd: #e8e4c9c9;
+  --darkColorTabelEven: #22222259;
+  --darkColorInnerTabelEven: #222222cc;
+  --darkThemeColorMouseover: #ccc48acb;
+  --boxShadowThemeColor: #e8e4c9;
+  --darkColor: #222222;
+  --tabelEven: #a48e1079;
+  --tabelOdd: #c9ad0f79;
+  --tableMouseover: #96db0dbd;
+  --innerTable: rgb(170, 9, 9);
+  --innerTabelEven: #a48e10;
+  --innerTabelOdd: #c9ad0f;
+  --removeElement: #6e0303;
+  --removeElementDark: #6b0404;
+  --removeElementHover: #c62828;
+  --removeElementDarkHover: rgb(184, 7, 7);
+  --showElement: #085a0b;
+  --showElementHover: #97db0d;
+  --showElementDark: #2c3502;
+  --showElementDarkHover: #228b22;
+  --paginationColor1: rgb(0, 253, 0);
+  --paginationColor2: rgb(8, 185, 8);
+  --inputPagination: rgba(0, 253, 0, 0.315);
+  --searchers: #746409;
+  --searchersInput: #ad9311;
+  font-size: 16px;
+}
+::selection {
+  background-color: var(--selectionColor);
+}
+body {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
+    url(./imgs/background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--darkColor);
+  align-items: center;
+}
+body.darkThemeMode {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)),
+    url(./imgs/background.jpg);
+}
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.topHeader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--darkColor);
+  box-shadow: 0 0 3px 1px var(--boxShadowThemeColor);
+}
+.topHeader .topHeaderItems {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  max-width: 1920px;
+  display: flex;
+  margin: .7rem 0;
+  gap: 15rem;
+}
+h2.audioInstruction {
+  font-size: 1rem;
+  align-self: center;
+  color: var(--goldThemeColor);
+  user-select: none;
+}
+.topHeader .buttonsContainer {
+  display: flex;
+  gap: 1rem;
+}
+.topHeaderItems button.colorfulTheme,
+.topHeaderItems button.darkTheme {
+  font-size: 1rem;
+  padding: .5rem 1.5rem;
+  align-self: center;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: bold;
+  user-select: none;
+  cursor: pointer;
+}
+button.colorfulTheme {
+  background-color: var(--goldThemeColor);
+  transition: 0.3s;
+}
+button.colorfulTheme:hover {
+  background-color: var(--goldThemeColorMouseover);
+}
+button.darkTheme {
+  background-color: var(--darkThemeColor);
+  transition: 0.3s;
+}
+button.darkTheme:hover {
+  background-color: var(--darkThemeColorMouseover);
+}
+nav {
+  max-width: 1920px;
+  display: flex;
+  margin: 4rem 5rem 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+nav button {
+  width: 9rem;
+  padding: 3.2rem 0;
+  background-color: transparent;
+  color: var(--goldThemeColor);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  border-radius: 1.8rem;
+  border: transparent;
+  box-shadow: 0 2px 3px var(--boxShadowThemeColor);
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+nav button:hover {
+  background-color: var(--goldThemeColor);
+  box-shadow: 0 2px 3px var(--goldThemeColor);
+  color: var(--darkColor);
+}
+main {
+  max-width: 1920px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+div.logoContainer {
+  margin-top: 10rem;
+}
+h1 {
+  color: var(--darkColor);
+  line-height: 11rem;
+  font-size: 11rem;
+  font-family: "Stardos Stencil", system-ui;
+  text-shadow: 0 0 1rem var(--boxShadowThemeColor);
+  text-align: center;
+  user-select: none;
+  transition: 2s;
+}
+h1.finalLogo {
+  color: #a48e10;
+  text-shadow: 0 0 1rem var(--darkColor);
+  cursor: default;
+}
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  margin-top: 5rem;
+  width: 100%;
+}
+.tableContainer table {
+  user-select: none;
+  width: 100%;
+}
+.tableContainer th,
+td {
+  text-align: center;
+  font-size: 1rem;
+  padding: .5rem 0.5rem;
+}
+.tableContainer tr {
+  background-color: var(--goldThemeColor);
+}
+.tableContainer th.withRemoval {
+  position: relative;
+}
+.btnRemoveAll {
+  bottom: 0;
+  right: 0;
+  transform: translateY(100%);
+  position: absolute;
+  font-size: 1rem;
+  background-color: var(--removeElement);
+  color: var(--goldThemeColor);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  border: none;
+  transition: 0.3s;
+}
+.btnRemoveAll:hover {
+  background-color: var(--removeElementHover);
+  color: var(--darkColor);
+  font-weight: bold;
+}
+.tableContainer tbody tr:nth-child(even) {
+  background-color: var(--tabelEven);
+  transition: 0.3s;
+}
+.tableContainer tbody tr:nth-child(odd) {
+  background-color: var(--tabelOdd);
+  transition: 0.3s;
+}
+.tableContainer tbody tr:hover {
+  background-color: var(--tableMouseover);
+}
+.actionsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto 0;
+  row-gap: .3rem;
+  height: 100%;
+}
+.btnRemove {
+  font-size: 1.5rem;
+  color: var(--removeElement);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btnRemove:hover {
+  color: var(--removeElementHover);
+}
+.btnShowMore {
+  font-size: 1.5rem;
+  color: var(--showElement);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btnShowMore:hover {
+  color: var(--showElementHover);
+}
+.checkToRemove {
+  height: 1rem;
+  width: 1rem;
+  cursor: pointer;
+}
+div.paginationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  column-gap: 0.5rem;
+}
+.paginationContainer i {
+  font-size: 1.3rem;
+  color: var(--paginationColor1);
+  align-self: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.paginationContainer i:hover {
+  color: var(--paginationColor2);
+}
+i.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.paginationContainer select {
+  height: 2.5rem;
+  font-size: 1.2rem;
+  background-color: var(--paginationColor1);
+  border-radius: 0.5rem;
+  margin-left: 1rem;
+}
+select option {
+  font-size: 1.4rem;
+}
+.paginationContainer input {
+  width: 2.2rem;
+  height: 2.2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 0.5rem;
+  margin-left: 0.5rem;
+  border: none;
+  background-color: var(--inputPagination);
+}
+.paginationContainer label {
+  font-size: 1.4rem;
+  color: var(--paginationColor1);
+  margin-right: 0.5rem;
+}
+div.tableContainer::after {
+  content: "";
+  width: 100%;
+  margin-top: 4rem;
+  height: 0.1rem;
+  background-color: var(--boxShadowThemeColor);
+  display: flex;
+}
+.emptyTableMessage {
+  display: flex;
+  height: 10vh;
+  font-size: 2rem;
+  background-color: var(--tabelEven);
+  justify-content: center;
+  line-height: 10vh;
+  width: 100%;
+}
+.innerTableContainer {
+  position: absolute;
+  max-width: 1920px;
+  width: 80%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+}
+.innerTableContainer table {
+  width: 100%;
+}
+.innerTableContainer tr {
+  text-align: center;
+  word-break: break-word;
+  text-align: left;
+}
+.innerTableContainer td {
+  text-align: center;
+  font-size: 1rem;
+}
+.innerTableContainer td.innerTdResize {
+  font-size: 1.3rem;
+  padding: 0.2rem 3rem;
+}
+.innerTableContainer td:nth-of-type(1) {
+  width: 30%;
+}
+.innerTableContainer th {
+  text-align: center;
+  font-size: 1rem;
+  padding: 0.3rem 0;
+}
+.innerTableContainer thead tr {
+  background-color: var(--innerTable);
+}
+.innerTableContainer tbody tr:nth-child(even) {
+  background-color: var(--innerTabelEven);
+}
+.innerTableContainer tbody tr:nth-child(odd) {
+  background-color: var(--innerTabelOdd);
+}
+.innerTableContainer .exitBtn {
+  margin-right: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem .6rem;
+  background-color: var(--goldThemeColor);
+  border-radius: 1rem;
+  color: var(--removeElement);
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(50%, -50%);
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s;
+}
+.innerTableContainer .exitBtn:hover {
+  background-color: var(--innerTabelOdd);
+}
+.addBlur {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.addBlur::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  z-index: 10;
+}
+.searchersContainer {
+  display: flex;
+  gap: 1rem;
+}
+.idSearcherContainer {
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  background-color: var(--searchers);
+  padding: 0 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  gap: 0.7rem;
+}
+.idSearcherContainer label {
+  font-size: 1.3rem;
+  align-self: center;
+}
+.idSearcherContainer input {
+  font-size: 1.3rem;
+  align-items: center;
+  width: 6rem;
+  padding: 0r 0.5rem;
+  border: none;
+  color: var(--darkColor);
+  border-radius: 0.5rem;
+  text-align: center;
+  background-color: var(--boxShadowThemeColor);
+}
+.idSearcherContainer input:focus {
+  background-color: var(--darkThemeColor);
+}
+.nameSearcherContainer {
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  background-color: var(--searchers);
+  padding: 0 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  gap: 0.7rem;
+}
+.nameSearcherContainer label {
+  font-size: 1.3rem;
+  align-self: center;
+}
+.nameSearcherContainer input {
+  font-size: 1.3rem;
+  width: 15rem;
+  padding: 0 0.5rem;
+  color: var(--darkColor);
+  border-radius: 0.5rem;
+  border: none;
+  text-align: center;
+  background-color: var(--boxShadowThemeColor);
+}
+.nameSearcherContainer input:focus {
+  background-color: var(--darkThemeColor);
+}
+nav button.darkThemeMode {
+  color: var(--darkThemeColor);
+}
+nav button.darkThemeMode:hover {
+  background-color: var(--darkThemeColorMouseover);
+  color: var(--darkThemeColor);
+  box-shadow: none;
+}
+h2.darkThemeMode {
+  color: var(--darkThemeColor);
+}
+.logoContainer h1.finalLogo.darkThemeMode {
+  color: var(--darkThemeColor);
+}
+.tableContainer tbody tr.darkThemeMode:nth-child(even) {
+  background-color: var(--darkColorTabelEven);
+  color: var(--darkThemeColor);
+}
+.tableContainer tbody tr.darkThemeMode:nth-child(odd) {
+  background-color: var(--darkThemeColorTabelOdd);
+}
+.tableContainer thead tr.darkThemeMode {
+  background-color: var(--darkColor);
+  color: var(--darkThemeColor);
+}
+.tableContainer tbody tr.darkThemeMode:hover {
+  background-color: var(--darkThemeColorMouseover);
+}
+.btnRemove.darkThemeMode {
+  color: var(--removeElementDark);
+  transition: 0.3s;
+}
+.btnRemove:hover.darkThemeMode {
+  color: var(--removeElementDarkHover);
+}
+.btnShowMore.darkThemeMode {
+  color: var(--showElementDark);
+  transition: 0.3s;
+}
+.btnShowMore:hover.darkThemeMode {
+  color: var(--showElementDarkHover);
+}
+.idSearcherContainer.darkThemeMode {
+  background-color: var(--darkColor);
+  color: var(--darkThemeColor);
+}
+.nameSearcherContainer.darkThemeMode {
+  background-color: var(--darkColor);
+  color: var(--darkThemeColor);
+}
+.paginationContainer i.darkThemeMode {
+  color: var(--darkThemeColor);
+}
+.paginationContainer i.darkThemeMode:hover {
+  color: var(--paginationColor1);
+}
+.paginationContainer input {
+  background-color: var(--darkThemeColor);
+}
+.paginationContainer label.darkThemeMode {
+  color: var(--darkThemeColor);
+}
+select.darkThemeMode {
+  background-color: var(--darkThemeColor);
+  color: var(--darkColor);
+  border: solid var(--darkThemeColor);
+}
+.innerTableContainer thead tr.darkThemeMode {
+  background-color: var(--darkColor);
+  color: var(--darkThemeColor);
+}
+.innerTableContainer tbody tr.darkThemeMode:nth-child(even) {
+  background-color: var(--darkColorInnerTabelEven);
+  color: var(--darkThemeColor);
+}
+.innerTableContainer tbody tr.darkThemeMode:nth-child(odd) {
+  background-color: var(--darkThemeColorInnerTabelOdd);
+}
+.innerTableContainer .exitBtn.darkThemeMode {
+  background-color: var(--removeElementDark);
+  color: var(--darkThemeColor);
+  transition: 0.3s;
+}
+.innerTableContainer .exitBtn.darkThemeMode:hover {
+  background-color: var(--removeElementDarkHover);
+}
+@media (max-width: 1600px) {
+  div.logoContainer {
+    margin-top: 9rem;
+  }
+  h1 {
+    color: var(--darkColor);
+    line-height: 10rem;
+    font-size: 10rem;
+    font-family: "Stardos Stencil", system-ui;
+    text-shadow: 0 0 1rem var(--boxShadowThemeColor);
+    text-align: center;
+    user-select: none;
+    transition: 2s;
+  }
+}
+@media (max-width: 1280px) {
+  body {
+    background-position: right;
+  }
+  .topHeader .topHeaderItems {
+    gap: 3rem;
+  }
+  nav {
+    margin: 3rem 0.5rem 0;
+    gap: 1rem;
+  }
+  h1 {
+    line-height: 8.5rem;
+    font-size: 8.5rem;
+  }
+}
+@media (max-width: 1100px) {
+  h2.audioInstruction {
+    font-size: .8rem;
+  }
+  .topHeader .buttonsContainer {
+    gap: .5rem;
+  }
+  .topHeaderItems button.colorfulTheme,
+  .topHeaderItems button.darkTheme {
+    font-size: .8rem;
+    padding: .4rem 1rem;
+  }
+  nav {
+    margin: 3rem 5rem 0;
+    gap: 1rem;
+  }
+  nav button {
+    width: 8rem;
+    padding: 3rem .5rem;
+    font-size: 1.2rem;
+  }
+  h1 {
+    line-height: 8rem;
+    font-size: 8rem;
+  }
+  .btnRemove {
+    font-size: 2.1rem;
+  }
+  .btnShowMore {
+    font-size: 2.1rem;
+  }
+  .checkToRemove {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+  .tableContainer th,
+  td {
+    font-size: .8rem;
+    padding: .3rem 0.3rem;
+  }
+  .btnRemoveAll {
+    font-size: .8rem;
+    padding: 0.2rem .6rem;
+    border-radius: 1rem;
+  }
+  .actionsContainer {
+    row-gap: .2rem;
+  }
+  .btnRemove {
+    font-size: 1.2rem;
+  }
+  .btnShowMore {
+    font-size: 1.2rem;
+  }
+  .checkToRemove {
+    height: .9rem;
+    width: .9rem;
+  }
+  div.paginationContainer {
+    margin: 1rem auto;
+    column-gap: 0.3rem;
+  }
+  .paginationContainer i {
+    font-size: 1.2rem;
+  }
+  .paginationContainer select {
+    height: 2.3rem;
+    font-size: 1rem;
+  }
+  select option {
+    font-size: 1.2rem;
+  }
+  .paginationContainer input {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+  .emptyTableMessage {
+    font-size: 1rem;
+    line-height: 10vh;
+  }
+  .innerTableContainer td.innerTdResize {
+    font-size: .8rem;
+  }
+  .innerTableContainer th {
+    font-size: .8rem;
+  }
+  .innerTableContainer td {
+    font-size: .8rem;
+  }
+  .innerTableContainer .exitBtn {
+    font-size: .8rem;
+  }
+  .searchersContainer {
+    gap: .7rem;
+  }
+  .idSearcherContainer {
+    height: 2rem;
+    margin-bottom: .5rem;
+  }
+  .idSearcherContainer label {
+    font-size: 1rem;
+  }
+  .idSearcherContainer input {
+    font-size: 1rem;
+  }
+  .nameSearcherContainer {
+    height: 2rem;
+    margin-bottom: .5rem;
+  }
+  .nameSearcherContainer label {
+    font-size: 1rem;
+  }
+  .nameSearcherContainer input {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1024px) {
+  nav {
+    margin: 3rem 2rem 0;
+    gap: 1rem;
+  }
+  nav button {
+    width: 6.5rem;
+    padding: 2.7rem .5rem;
+    font-size: 1rem;
+  }
+  div.logoContainer {
+    width: 23rem;
+    align-self: center;
+  }
+  h1 {
+    line-height: 8rem;
+    font-size: 8rem;
+  }
+  nav {
+    margin: 3rem 2rem 0;
+    gap: 1rem;
+  }
+  nav button {
+    width: 6.5rem;
+    padding: 2.7rem .5rem;
+    font-size: 1rem;
+  }
+  div.logoContainer {
+    width: 23rem;
+    align-self: center;
+  }
+  h1 {
+    line-height: 8rem;
+    font-size: 8rem;
+  }
+  .idSearcherContainer label {
+    font-size: .8rem;
+
+  }
+  .idSearcherContainer input {
+    font-size: .8rem;
+    width: 4rem;
+    padding: .1rem 0;
+  }
+  .nameSearcherContainer label {
+    font-size: .8rem;
+  }
+  .nameSearcherContainer input {
+    width: 10rem;
+    font-size: .8rem;
+    padding: .1rem 0;
+  }
+  .emptyTableMessage {
+    font-size: .8rem;
+  }
+  .innerTableContainer td.innerTdResize {
+    font-size: .7rem;
+  }
+  .innerTableContainer td {
+    font-size: .7rem;
+  }
+  .innerTableContainer th {
+    font-size: .7rem;
+  }
+  .innerTableContainer .exitBtn {
+    font-size: .7rem;
+  }
+}
+@media (max-width: 768px) {
+  body {
+    background-position: 80%;
+  }
+  .topHeader .topHeaderItems {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+  }
+  nav {
+    margin: 1rem 2rem 0;
+    gap: 1rem;
+  }
+  nav button {
+    width: 15rem;
+    padding: 1.2rem 0.2rem;
+    font-size: 1rem;
+  }
+  div.logoContainer {
+    margin-top: 5rem;
+    width: 25rem;
+  }
+  h1 {
+    line-height: 7rem;
+    font-size: 7rem;
+  }
+  .tableContainer {
+    margin-top: 3rem;
+  }
+  .searchersContainer {
+    width: 95%;
+    justify-content: center;
+  }
+  .nameSearcherContainer input {
+    width: 8rem;
+  }
+}
+@media (max-width: 585px) {
+  nav {
+    margin: 1rem 1rem 0;
+    gap: 0.7rem;
+  }
+  nav button {
+    width: 16rem;
+    font-size: 1rem;
+    padding: .7rem 0;
+  }
+  div.logoContainer {
+    margin-top: 3rem;
+    width: 20rem;
+  }
+  h1 {
+    line-height: 6rem;
+    font-size: 6rem;
+  }
+  .tableContainer th,
+  td {
+    padding: 0.1rem;
+  }
+  .innerTableContainer td.innerTdResize {
+    font-size: 0.7rem;
+    padding: 0;
+  }
+  .innerTableContainer td {
+    font-size: 0.7rem;
+  }
+  .searchersContainer {
+    flex-direction: column;
+    gap: .5rem;
+    width: 70%;
+  }
+  .idSearcherContainer {
+    align-self: center;
+    justify-content: center;
+    margin: 0;
+  }
+  .nameSearcherContainer {
+    width: 100%;
+    align-self: center;
+    justify-content: center;
+  }
+  .nameSearcherContainer input {
+    width: 8rem;
+    font-size: 0.9rem;
+  }
+}
